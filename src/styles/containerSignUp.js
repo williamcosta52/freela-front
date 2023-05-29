@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+	margin-top: ${(props) => props.signinStyle === "signin" && "100px"};
 	width: 100%;
-	height: 912px;
+	height: 120%;
 	background-color: ${(props) => props.mode};
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
 	form {
 		margin-top: 50px;
 		width: ${(props) => (props.signinStyle === "signin" ? "600px" : "675px")};

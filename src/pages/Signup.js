@@ -11,7 +11,7 @@ function Signup({ mode, setMode }) {
 	const [biography, setBiography] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const PORT = "http://localhost:5000";
+	const PORT = process.env.REACT_APP_API_URL;
 	const navigate = useNavigate();
 	function sendSignUp(e) {
 		e.preventDefault();

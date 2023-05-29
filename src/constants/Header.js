@@ -29,7 +29,8 @@ const HeaderStyled = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: transparent;
+	background-color: ${(props) =>
+		props.mode === "#1E1C1C" ? "#1E1C1C" : "white"};
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	z-index: 1;
 	position: fixed;

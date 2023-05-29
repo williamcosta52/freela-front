@@ -10,10 +10,10 @@ function Signin({ mode, setMode }) {
 	const [password, setPassword] = useState("");
 	const signinStyle = "signin";
 	const navigate = useNavigate();
-	const { setToken } = useContext(tokenContext);
+	const { setUserInfo } = useContext(tokenContext);
 	function login(e) {
 		e.preventDefault();
-		const PORT = "http://localhost:5000";
+		const PORT = process.env.REACT_APP_API_URL;
 		const body = {
 			email,
 			password,
@@ -22,9 +22,9 @@ function Signin({ mode, setMode }) {
 			.post(`${PORT}/signin`, body)
 			.then((r) => {
 				navigate("/profile");
-				setToken(r.data.token);
+				setUserInfo(r.data);
 			})
-			.catch((e) => alert(e.response.data.message));
+			.catch((e) => console.log(e));
 	}
 	return (
 		<Container mode={mode} signinStyle={signinStyle}>

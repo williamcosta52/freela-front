@@ -2,16 +2,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Profile from "./pages/Profile";
 import tokenContext from "./contexts/token.context";
 
 function App() {
 	const [mode, setMode] = useState("#ffffff");
-	const [token, setToken] = useState("");
+	const [userInfo, setUserInfo] = useState("");
 	const context = {
-		token,
-		setToken,
+		userInfo,
+		setUserInfo,
 	};
-
 	return (
 		<tokenContext.Provider value={context}>
 			<BrowserRouter>
@@ -21,6 +21,10 @@ function App() {
 						element={<Signup mode={mode} setMode={setMode} />}
 					/>
 					<Route path="/" element={<Signin mode={mode} setMode={setMode} />} />
+					<Route
+						path="/profile"
+						element={<Profile mode={mode} setMode={setMode} />}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</tokenContext.Provider>
